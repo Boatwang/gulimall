@@ -3,23 +3,30 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://192.168.73.50:3306/gulimall_pms
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI5tJWAWV361sb2kLLXLsk
+      secret-key: RpgO18Qd66T3t9wOsGPpjS80Zxi5SC
+      oss: oss-cn-qingdao.aliyuncs.com
+
 
   application:
     name: gulimall-product
-
-    inetutils:
-      ignored-interfaces: 'VMware Virtual Ethernet Adapter for VMnet1,VMware Virtual Ethernet Adapter for VMnet8'
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
 
 
 server:
   port: 10000
+logging:
+  level:
+    com.atguigu.gulimall: debug
